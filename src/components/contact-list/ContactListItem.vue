@@ -1,5 +1,11 @@
 <template>
-  <li class="list-item" @click="emit('openDetail')">{{ contact.name }}</li>
+  <li class="list-item" @click="emit('openDetail')">
+    <h4>{{ contact.name }}</h4>
+    <small>{{ contact.phone }}</small>
+    <ul class="tags">
+      <li v-for="(tag, i) in contact.tags" :key="`${tag}_${i}`">#{{ tag }}</li>
+    </ul>
+  </li>
 </template>
 
 <script lang="ts" setup>
@@ -9,9 +15,7 @@ import type { PropType } from 'vue'
 defineProps({
   contact: {
     type: Object as PropType<IContacts>,
-    default: () => ({
-      name: ''
-    })
+    default: () => ({})
   }
 })
 

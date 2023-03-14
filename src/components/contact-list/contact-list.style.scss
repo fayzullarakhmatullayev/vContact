@@ -14,5 +14,18 @@
     &:hover {
       background: $light-gray;
     }
+    h4 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    small {
+      color: $dark-gray;
+    }
+    .tags {
+      display: flex;
+      gap: 0.3rem;
+      font-size: 0.8rem;
+      color: $dark-gray;
+    }
   }
 }

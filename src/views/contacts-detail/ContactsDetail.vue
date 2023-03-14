@@ -1,16 +1,34 @@
 <template>
+  <h1 class="title">Contact</h1>
   <div class="details">
-    <Button btn-class="btn-blue" @click="router.go(-1)">Back</Button>
-    <h1 class="title">Contact</h1>
     <div class="contact-detail">
-      <p>{{ contact.name }}</p>
-      <p>{{ contact.email }}</p>
-      <p>{{ contact.phone }}</p>
+      <p>
+        Name: <span>{{ contact.name }}</span>
+      </p>
+      <p>
+        Phone: <a :href="`tel:${contact.phone}`">{{ contact.phone }}</a>
+      </p>
+      <p>
+        Email: <a :href="`mailto:${contact.email}`">{{ contact.email }}</a>
+      </p>
+    </div>
+    <div class="tags">
+      <span>Tags:</span>
+      <ul>
+        <li v-for="(tag, i) in contact.tags" :key="`${tag}_${i}`">#{{ tag }}</li>
+      </ul>
+    </div>
+
+    <div class="actions">
+      <button class="edit" title="Edit">
+        <img src="@/assets/svg/create-outline.svg" alt="create-outline" />
+      </button>
+      <button class="remove" title="Delete">
+        <img src="@/assets/svg/trash-outline.svg" alt="trash-outline" />
+      </button>
     </div>
   </div>
-  <ul>
-    <li v-for="(tag, i) in contact.tags" :key="`${tag}_${i}`">{{ tag }}</li>
-  </ul>
+  <Button btn-class="btn-blue" @click="router.go(-1)">Back</Button>
 </template>
 
 <script lang="ts" setup>
