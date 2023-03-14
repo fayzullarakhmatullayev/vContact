@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+@import 'imports/var';
+@import 'imports/mixins';
+@import 'imports/normilize';
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  outline: none;
+}
+
+body {
+  line-height: 1.2;
+  color: $black;
+  background: $white;
+  font-family: 'Ubuntu', sans-serif;
+  position: relative;
+}
+
+.container {
+  max-width: 800px;
+  padding: 0 1rem;
+  margin: 0 auto;
+}
+.title {
+  text-align: center;
+}

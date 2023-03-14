@@ -1,0 +1,63 @@
+@import '@/assets/scss/imports/var';
+@import '@/assets/scss/imports/mixins';
+
+.btn {
+  all: unset;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  display: block;
+  transition: all 0.3s ease-in-out;
+  background: transparent;
+  color: $black;
+
+  &-blue {
+    background: $blue;
+    color: $white;
+    &:hover {
+      background: $dark-blue;
+    }
+  }
+
+  &-green {
+    background: $green;
+    color: $white;
+    &:hover {
+      background: $dark-green;
+    }
+  }
+
+  &-red {
+    background: $red;
+    color: $white;
+    &:hover {
+      background: $dark-red;
+    }
+  }
+
+  &-add {
+    all: unset;
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: $orange;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      background: $dark-orange;
+    }
+    &::after {
+      content: '+';
+      font-size: 2.5rem;
+      line-height: 1;
+      color: $white;
+      margin-top: -0.27rem;
+    }
+  }
+}
