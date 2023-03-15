@@ -3,6 +3,7 @@
 
 .list {
   border: 1px solid $gray;
+  overflow: hidden;
   &-item {
     padding: 1.2rem 1rem;
     transition: 0.3s ease-in-out;
@@ -27,5 +28,20 @@
       font-size: 0.8rem;
       color: $dark-gray;
     }
+  }
+  &-move,
+  &-enter-active,
+  &-leave-active {
+    transition: all 0.5s ease;
+  }
+
+  &-enter-from,
+  &-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  &-leave-active {
+    position: absolute;
   }
 }

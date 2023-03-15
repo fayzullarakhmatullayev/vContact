@@ -1,0 +1,14 @@
+@import '@/assets/scss/imports/var';
+@import '@/assets/scss/imports/mixins';
+
+.contact-filter {
+  &__title {
+    margin-bottom: 10px;
+  }
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(2, calc(50% - 5px));
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+}

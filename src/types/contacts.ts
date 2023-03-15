@@ -5,3 +5,5 @@ export interface IContacts {
   email?: string
   tags?: string[]
 }
+
+export type IFilter = 'name' | 'phone' | 'email'

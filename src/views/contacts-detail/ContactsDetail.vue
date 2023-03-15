@@ -28,11 +28,11 @@
       </button>
     </div>
   </div>
-  <Button btn-class="btn-blue" @click="router.go(-1)">Back</Button>
+  <BaseButton btn-class="btn-blue" @click="router.go(-1)">Back</BaseButton>
 </template>
 
 <script lang="ts" setup>
-import Button from '@/components/Ui/Button/Button.vue'
+import BaseButton from '@/components/Ui/Button/BaseButton.vue'
 import { useContactsStore } from '@/store/contacts'
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'

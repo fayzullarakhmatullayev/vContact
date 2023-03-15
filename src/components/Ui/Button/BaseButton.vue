@@ -13,5 +13,5 @@ defineProps({
 </script>
 
 <style lang="scss" scoped>
-@import 'button.style.scss';
+@import 'base-button.style.scss';
 </style>

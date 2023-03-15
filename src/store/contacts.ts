@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { IContacts } from '@/types/contacts'
+import type { IContacts, IFilter } from '@/types/contacts'
 import { ref } from 'vue'
 
 export const useContactsStore = defineStore(
