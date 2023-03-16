@@ -1,12 +1,15 @@
 <template>
   <h1 class="title">My Contacts</h1>
 
-  <ContactFilter
-    @filter-by-name="(name) => (filter.name = name)"
-    @filter-by-email="(email) => (filter.email = email)"
-    @filter-by-phone="(phone) => (filter.phone = phone)"
-    @filter-by-tagname="(tag) => (filter.tag = tag)"
-  />
+  <div class="contact-filter">
+    <div class="contact-filter__title">Filters</div>
+    <div class="contact-filter__inner">
+      <input class="input" placeholder="By Name" v-model.trim="filter.name" />
+      <input class="input" type="tel" v-model.trim="filter.phone" placeholder="By Phone" />
+      <input class="input" type="email" v-model.trim="filter.email" placeholder="By Email" />
+      <input class="input" v-model.trim="filter.tag" placeholder="By Tag" />
+    </div>
+  </div>
 
   <ContactList :filteredContacts="filteredContacts" v-if="filteredContacts.length > 0" />
   <div class="empty" v-else>Empty</div>
@@ -15,21 +18,17 @@
 
   <teleport to="body">
     <Modal @close-modal="isModalOpem = false" v-if="isModalOpem">
-      <template #title>Modal</template>
-      <BaseInput :type="'email'" placeholder="test" />
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, animi nemo. Rem porro
-      maiores consequatur delectus neque expedita! Sunt reprehenderit reiciendis porro alias omnis
-      quaerat facilis autem accusantium dolores animi.
+      <template #title>Add a new contact</template>
+      <FormSubmit @close-form="isModalOpem = false" />
     </Modal>
   </teleport>
 </template>
 
 <script setup lang="ts">
-import ContactFilter from '@/components/contact-filter/ContactFilter.vue'
 import ContactList from '@/components/contact-list/ContactList.vue'
+import FormSubmit from '@/components/Form/FormSubmit.vue'
 import Modal from '@/components/modal/Modal.vue'
 import BaseButton from '@/components/Ui/Button/BaseButton.vue'
-import BaseInput from '@/components/Ui/Input/BaseInput.vue'
 import { useContactsStore } from '@/store/contacts'
 import { computed } from '@vue/reactivity'
 import { reactive, ref } from 'vue'

@@ -1,0 +1,32 @@
+@import '@/assets/scss/imports/var';
+@import '@/assets/scss/imports/mixins';
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &-tags {
+    display: flex;
+    gap: 10px;
+    button {
+      width: 18%;
+    }
+
+    &__items {
+      display: flex;
+      gap: 5px;
+      li {
+        background: $light-gray;
+        padding: 10px 15px;
+        font-weight: 300;
+      }
+    }
+  }
+
+  &-buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+}

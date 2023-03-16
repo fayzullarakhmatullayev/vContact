@@ -1,17 +1,18 @@
 import { defineStore } from 'pinia'
-import type { IContacts, IFilter } from '@/types/contacts'
+import type { IContacts } from '@/types/contacts'
 import { ref } from 'vue'
 
 export const useContactsStore = defineStore(
   'contacts',
   () => {
     const contacts = ref<IContacts[]>(JSON.parse(localStorage.getItem('contacts') || '[]'))
+    const singleContact = ref<IContacts>(JSON.parse(localStorage.getItem('singleContact') || '{}'))
 
     const addContact = (contact: IContacts) => {
       contacts.value.push(contact)
     }
 
-    const removeContact = (id: number) => {
+    const removeContact = (id: number | Date) => {
       contacts.value = contacts.value.filter((contact) => contact.id !== id)
     }
 
@@ -22,7 +23,9 @@ export const useContactsStore = defineStore(
       }
     }
 
-    return { contacts, addContact, removeContact, updateContact }
+    const addSingleContact = (contact: IContacts) => (singleContact.value = contact)
+
+    return { contacts, singleContact, addSingleContact, addContact, removeContact, updateContact }
   },
   { persist: true }
 )
