@@ -50,7 +50,7 @@
 <script lang="ts" setup>
 import { useContactsStore } from '@/store/contacts'
 import type { IContacts } from '@/types/contacts'
-import { ref, type PropType, nextTick } from 'vue'
+import { ref, type PropType } from 'vue'
 import BaseButton from '../Ui/Button/BaseButton.vue'
 
 const store = useContactsStore()
@@ -87,13 +87,12 @@ const addTags = () => {
   }
 }
 
-const submitHandler = async () => {
+const submitHandler = () => {
   if (props.isEdit) {
     store.updateContact(props.initialFormValue)
   } else {
     store.addContact({ ...addFormValues.value, id: Date.now() })
   }
-  await nextTick()
   emit('closeForm')
 }
 </script>
