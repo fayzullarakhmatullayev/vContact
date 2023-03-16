@@ -91,7 +91,7 @@ const submitHandler = async () => {
   if (props.isEdit) {
     store.updateContact(props.initialFormValue)
   } else {
-    store.addContact({ ...addFormValues.value, id: new Date() })
+    store.addContact({ ...addFormValues.value, id: Date.now() })
   }
   await nextTick()
   emit('closeForm')
