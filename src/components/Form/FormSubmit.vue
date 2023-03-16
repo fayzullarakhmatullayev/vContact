@@ -79,9 +79,9 @@ const tag = ref('')
 const addTags = () => {
   if (tag.value.length > 0) {
     if (props.isEdit) {
-      props.initialFormValue.tags?.push(tag.value)
+      props.initialFormValue.tags?.push(tag.value.toLowerCase())
     } else {
-      addFormValues.value.tags?.push(tag.value)
+      addFormValues.value.tags?.push(tag.value.toLowerCase())
     }
     tag.value = ''
   }
